@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet"> 
     <title>ThreeJS Starter</title>
 </head>
 <body>
+    <div class="container">
+        <div class="content">
+            <h1>Unleashing<br>A World of Potential</h1>
+            <p>Helping networks transform their operations through managed and field services.</p>
+        </div>
+    </div>
     <canvas class="webgl"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js" integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/CSSRulePlugin.min.js" integrity="sha512-9BAIrJcd9W75AJsWgJTfaoRkdbk2EI92JkWWsnRx6+T8NfqrIFNrb22stBpB4ii+cbgbUG24d5BPyl4JMAw5aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const content = CSSRulePlugin.getRule('.content:before');
+        const h1 = document.querySelector('h1');
+        const p = document.querySelector('p');
+        const tl = gsap.timeline();
+
+        tl.from(content, {delay: .5, duration: 4, cssRule: {scaleX:0}});
+
+        tl.to(h1, {duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:'30px'}, "-=3");
+
+        tl.to(p, {duration: 4, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:'30px'}, "-=2");
+    </script>
 </body>
 </html>
